@@ -6,6 +6,7 @@
 # feed the islandora batch import module (https://github.com/Islandora/islandora_book_batch)
 # It expects a folder of jpg files that are in sequence like pages of a book:
 # (e.g MYBOOK_001.jpg, .. ,MYBOOK_345.jpg) and it will output the structure as required by the module
+# Update: Credit Joanna DiPasquale for current version; original source unknown?
 
 if [ -z "$1" ]
   then
