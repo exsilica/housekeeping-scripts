@@ -82,18 +82,11 @@ SECTION 3a: Container Layout
 WIP
 ---
 
-SECTIONb: Hypothetical Migrated Site Container Layout(s)
+SECTION 3b: Hypothetical Migrated Site Container Layout(s)
 ---
 WIP
 ---
 
-APPENDIX: Misc. Questions
-
-ISLE/apache
-The settings.php that lives here is not the settings.php that is generated in the drupal makefile (see: drupal.drush.make). Does this overwrite default settings.php? If so, what is its relationship to the settings.php in ISLE/config/isle-prod-project.institution/apache, which should be the location for customized files that will overwrite defaults?
-
-ISLE/vagrant
-This seems to be for a specific installtion use case. Does it belong here, in core ISLE? In the spirit of "use tools as needed and get rid of them" Gavin was extolling at H/D, can this be moved?
 
 
 
