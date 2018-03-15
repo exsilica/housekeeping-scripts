@@ -1,0 +1,111 @@
+SECTION 1: Site Building
+
+ISLE/apache/isle_drupal_build_tools
+Contents:
+2 drush makefiles: drupal and islandora
+Script to adjust permissions
+Install script combining these build tools
+
+
+install_isle_ld_site.sh
+--
+[1]
+In a temporary directory:
+Builds Drupal site using drupal makefile (see: drupal.drush.make)
+Installs Islandora modules using islandora makefile (see: islandora.drush.make)
+Moves contents of tmp to proper (Drupal site) locations
+
+[2]
+1.10 release dependency upgrade
+(OSD)
+
+[3]
+Initialize Drupal site
+
+[4]
+Variable setting (used in this case as prefix assignment)
+
+[5]
+Enable Drupal, then Islandora modules
+*** If `drush openseadragon-plugin` is here WHY THE FIX ***
+
+[6]
+# Commented out
+Cron job
+
+[7]
+Ensure necessary permissions by running permissions script
+--
+
+drupal.drush.make
+--
+Knits latest Drupal modules and libraries
+*** Note: jwplayer (slated for Islandora deprecation) is here. Will this be removed when 1.11 is released? ***
+---
+
+islandora.drush.make
+---
+[1]
+Initialize defaults: modules downloaded via git from 7.x to /modules/islandora, to overwrite any existing modules
+
+[2]
+Knits latest Islandora modules and libraries
+
+TODO: How many Drupal modules are overwritten by Islandora modules, and what are the reasons against/consequences of just installing those Islandora modules without their Drupal defaults? (put another way: is overwrite = TRUE in [1] just a precautionary contingency plan, or part of Drupal>Islandora best practice?)
+---
+
+SECTION 2: Container Knitting
+
+ISLE
+Contents:
+5 containers: apache, fedora, mysql, proxy, solr
+Installer: ansible (Without knowing ansible, apparently contains info ansible wants)
+Customization directory: config
+Vagrantfile for setup: vagrant
+-- Without deeper assesment, appears to be data necessary for those following vagrant system setup steps in documentation
+Script to knit containers, local/test configurations
+-build script, for developers only, TODO: assess difference and purpose
+
+docker-compose.yml
+---
+[1]
+Initialize "services"
+-- Docker image, container name, environment, networks, ports, volumes
+-- mysql, fedora, solr, apache, proxy
+
+[2]
+As needed, define internal and external networks and data volumes
+---
+
+SECTION 3a: Container Layout
+---
+WIP
+---
+
+SECTIONb: Hypothetical Migrated Site Container Layout(s)
+---
+WIP
+---
+
+APPENDIX: Misc. Questions
+
+ISLE/apache
+The settings.php that lives here is not the settings.php that is generated in the drupal makefile (see: drupal.drush.make). Does this overwrite default settings.php? If so, what is its relationship to the settings.php in ISLE/config/isle-prod-project.institution/apache, which should be the location for customized files that will overwrite defaults?
+
+ISLE/vagrant
+This seems to be for a specific installtion use case. Does it belong here, in core ISLE? In the spirit of "use tools as needed and get rid of them" Gavin was extolling at H/D, can this be moved?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
