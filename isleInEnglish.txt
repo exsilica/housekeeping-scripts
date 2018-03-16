@@ -28,7 +28,6 @@ Variable setting (used in this case as prefix assignment)
 
 [5]
 Enable Drupal, then Islandora modules
-*** If `drush openseadragon-plugin` is here WHY THE FIX ***
 
 [6]
 # Commented out
